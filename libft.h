@@ -6,7 +6,7 @@
 /*   By: cmauley <cmauley@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 16:29:40 by cmauley           #+#    #+#             */
-/*   Updated: 2025/10/06 23:35:49 by cmauley          ###   ########.fr       */
+/*   Updated: 2025/10/08 17:33:28 by cmauley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,12 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 long	ft_atoi(const char *str);
 void	*ft_calloc(size_t count, size_t size);
+
+
+/*Additional functions*/
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strdup(const char *src);
+char	*ft_strjoin(const char *s1, const char *s2);
+char	*ft_strtrim(const char *s1, const char *set);
 
 #endif

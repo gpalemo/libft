@@ -1,44 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmauley <cmauley@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/06 22:28:06 by cmauley           #+#    #+#             */
-/*   Updated: 2025/10/08 19:20:19 by cmauley          ###   ########.fr       */
+/*   Created: 2025/10/07 22:06:05 by cmauley           #+#    #+#             */
+/*   Updated: 2025/10/08 18:01:27 by cmauley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+char	*ft_strjoin(const char *s1, const char *s2)
 {
-	unsigned char	*tmp;
-	size_t			total;
+	size_t	j;
+	size_t	i;
+	char	*res;
 
-	tmp = 0;
-	total = count * size;
-	tmp = malloc(total);
-	if (!tmp)
+	j = 0;
+	i = 0;
+	res = (char *) malloc((ft_strlen(s1) + ft_strlen(s2)) + 1);
+	if (!res)
 		return (NULL);
-	ft_bzero(tmp, total);
-	return (tmp);
+	while (s1[i])
+		res[j++] = s1[i++];
+	i = 0;
+	while (s2[i])
+		res[j++] = s2[i++];
+	res[j] = '\0';
+	return (res);
 }
 /*int	main()
 {
-	int *tab;
-	int i;
+	char	*s1 = "hello";
+	char	*s2 = " world";
+	char	*res;
 
-	tab = ft_calloc(5, sizeof(int));
-	if (!tab)
-		return(1);
-	i = 0;
-	while (i < 5)
-	{
-		printf("%d\n", tab[i]);
-		i++;
-	}
-	free(tab);
+	res = ft_strjoin(s1, s2);
+	printf("Result = %s\n", res);
+	free(res);
 	return (0);
 }*/

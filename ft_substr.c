@@ -1,44 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmauley <cmauley@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/06 22:28:06 by cmauley           #+#    #+#             */
-/*   Updated: 2025/10/08 19:20:19 by cmauley          ###   ########.fr       */
+/*   Created: 2025/10/07 18:13:04 by cmauley           #+#    #+#             */
+/*   Updated: 2025/10/07 22:05:30 by cmauley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	unsigned char	*tmp;
-	size_t			total;
+	char	*sub;
+	size_t	s_len;
 
-	tmp = 0;
-	total = count * size;
-	tmp = malloc(total);
-	if (!tmp)
+	if (s == 0)
 		return (NULL);
-	ft_bzero(tmp, total);
-	return (tmp);
+	s_len = ft_strlen(s);
+	if (start >= s_len)
+		return (ft_strdup(""));
+	if (start + len >= s_len)
+		len = s_len - start;
+	sub = (char *)malloc(len + 1);
+	if (sub == 0)
+		return (NULL);
+	ft_memcpy(sub, s + start, len);
+	sub[len] = '\0';
+	return (sub);
 }
 /*int	main()
 {
-	int *tab;
-	int i;
+	char	*s = "bonjour";
+	char	*sub;
 
-	tab = ft_calloc(5, sizeof(int));
-	if (!tab)
-		return(1);
-	i = 0;
-	while (i < 5)
-	{
-		printf("%d\n", tab[i]);
-		i++;
-	}
-	free(tab);
+	sub = ft_substr(s, 2, 3);
+	printf("%s\n", sub);
+	free(sub);
 	return (0);
 }*/

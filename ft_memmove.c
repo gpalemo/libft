@@ -6,7 +6,7 @@
 /*   By: cmauley <cmauley@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 20:05:14 by cmauley           #+#    #+#             */
-/*   Updated: 2025/10/06 21:12:37 by cmauley          ###   ########.fr       */
+/*   Updated: 2025/10/08 19:30:56 by cmauley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	int				i;
+	size_t				i;
 	unsigned char	*d;
 	unsigned char	*s;
 

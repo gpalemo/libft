@@ -6,7 +6,7 @@
 /*   By: cmauley <cmauley@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 01:58:36 by cmauley           #+#    #+#             */
-/*   Updated: 2025/10/06 21:32:38 by cmauley          ###   ########.fr       */
+/*   Updated: 2025/10/07 21:43:58 by cmauley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	{
 		if (*ptr == ch)
 			return ((void *)ptr);
+
 		ptr++;
 	}
 	return (NULL);
