@@ -6,7 +6,7 @@
 /*   By: cmauley <cmauley@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/11 23:28:02 by cmauley           #+#    #+#             */
-/*   Updated: 2025/10/11 23:32:51 by cmauley          ###   ########.fr       */
+/*   Updated: 2025/10/14 22:33:12 by cmauley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (s[i])
 	{
-		write(fd, &str[i], 1)
+		write(fd, &s[i], 1);
 		i++;
 	}
 }

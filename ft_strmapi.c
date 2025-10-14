@@ -6,7 +6,7 @@
 /*   By: cmauley <cmauley@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 16:20:13 by cmauley           #+#    #+#             */
-/*   Updated: 2025/10/14 16:33:32 by cmauley          ###   ########.fr       */
+/*   Updated: 2025/10/14 22:31:06 by cmauley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	unsigned int	i;
-	char	*res;
+	char			*res;
 
-	res = malloc((ft_strlen(s) + 1) *sizeof(char));
+	res = malloc((ft_strlen(s) + 1) * sizeof(char));
 	if (!res)
 		return (NULL);
 	i = 0;

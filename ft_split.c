@@ -6,7 +6,7 @@
 /*   By: cmauley <cmauley@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 20:32:37 by cmauley           #+#    #+#             */
-/*   Updated: 2025/10/11 22:23:22 by cmauley          ###   ########.fr       */
+/*   Updated: 2025/10/14 18:06:23 by cmauley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ char	**ft_split(char const *s, char c)
 	int		w;
 	int		i;
 	int		start;
-	
+
 	if (!s)
 		return (NULL);
 	str = malloc((word_count(s, c) + 1) * sizeof(char *));
@@ -67,7 +67,7 @@ char	**ft_split(char const *s, char c)
 		str[w] = ft_substr(s, start, i - start);
 		w++;
 	}
-	str[w] = '\0';
+	str[w] = NULL;
 	return (str);
 }
 /*int	main()
@@ -82,6 +82,5 @@ char	**ft_split(char const *s, char c)
 		printf("str = %d : %s\n", i, tab[i]);
 		i++;
 	}
-	write
 	return (0);
 }*/

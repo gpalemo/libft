@@ -6,7 +6,7 @@
 /*   By: cmauley <cmauley@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/11 23:25:59 by cmauley           #+#    #+#             */
-/*   Updated: 2025/10/11 23:27:05 by cmauley          ###   ########.fr       */
+/*   Updated: 2025/10/14 19:40:15 by cmauley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_putchar_fd(char c, int fd)
 {
-	write(fd, &c, 1)
+	write(fd, &c, 1);
 }

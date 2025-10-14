@@ -6,7 +6,7 @@
 /*   By: cmauley <cmauley@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 22:33:17 by cmauley           #+#    #+#             */
-/*   Updated: 2025/10/08 18:01:06 by cmauley          ###   ########.fr       */
+/*   Updated: 2025/10/14 22:44:56 by cmauley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,7 @@ char	*ft_strtrim(const char *s1, const char *set)
 	s3 = malloc(len - 1);
 	while (i <= j)
 	{
-		s3[k] = s1[i];
-		i++;
-		k++;
+		s3[k++] = s1[i++];
 	}
 	s3[k] = '\0';
 	return (s3);
