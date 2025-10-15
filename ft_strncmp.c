@@ -6,7 +6,7 @@
 /*   By: cmauley <cmauley@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 15:37:00 by cmauley           #+#    #+#             */
-/*   Updated: 2025/10/14 23:28:58 by cmauley          ###   ########.fr       */
+/*   Updated: 2025/10/15 00:04:01 by cmauley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 			return ((unsigned char) s1[i] - (unsigned char) s2[i]);
 		i++;
 	}
-		return (0);
+	return (0);
 }
