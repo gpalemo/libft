@@ -6,68 +6,82 @@
 /*   By: cmauley <cmauley@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 20:32:37 by cmauley           #+#    #+#             */
-/*   Updated: 2025/10/14 18:06:23 by cmauley          ###   ########.fr       */
+/*   Updated: 2025/10/15 22:27:32 by cmauley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	word_count(const char *s, char c)
+static size_t	word_count(const char *s, char c)
 {
-	int	y;
-	int	z;
+	size_t	i;
+	size_t	word_count;
 
-	y = 0;
-	z = 0;
-	while (s[y])
+	i = 0;
+	word_count = 0;
+	while (s[i])
 	{
-		if ((s[y] == c) && (s[y + 1] != c))
-			z++;
-		y++;
+		while (s[i] && s[i] == c)
+			i++;
+		if (s[i] && s[i] != c)
+			word_count++;
+		while (s[i] && s[i] != c)
+			i++;
 	}
-	if (z == 0)
-		return (-1);
-	return (z + 1);
+	return (word_count);
 }
 
-/*static void	free_all(char **tab, int i)
+static void	*free_all(char **tab, int i)
 {
-	while (i > 0)
+	while (i >= 0)
 	{
-		i--;
 		free (tab[i]);
+		i--;
 	}
 	free (tab);
 	return (NULL);
-}*/
+}
+
+static int	fill_words(char const *s, char c, char **str)
+{
+	size_t	i;
+	size_t	w;
+	size_t	start;
+
+	i = 0;
+	w = 0;
+	while (s[i])
+	{
+		while (s[i] && s[i] == c)
+			i++;
+		if (!s[i])
+			break ;
+		start = i;
+		while (s[i] && s[i] != c)
+			i++;
+		str[w] = ft_substr(s, start, i - start);
+		if (!str[w])
+		{
+			free_all(str, w);
+			return (0);
+		}
+		w++;
+	}
+	return (1);
+}
 
 char	**ft_split(char const *s, char c)
 {
 	char	**str;
-	int		w;
-	int		i;
-	int		start;
 
 	if (!s)
 		return (NULL);
 	str = malloc((word_count(s, c) + 1) * sizeof(char *));
 	if (!str)
 		return (NULL);
-	w = 0;
-	i = 0;
-	while (s[i])
-	{
-		while (s[i] && s[i] == c)
-			i++;
-		if (!s[i])
-			break;
-		start = i;
-		while (s[i] && s[i] != c)
-			i++;
-		str[w] = ft_substr(s, start, i - start);
-		w++;
-	}
-	str[w] = NULL;
+	str[word_count(s, c)] = NULL;
+	if (!fill_words(s, c, str))
+		return (NULL);
 	return (str);
 }
 /*int	main()

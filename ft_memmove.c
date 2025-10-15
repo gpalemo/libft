@@ -6,7 +6,7 @@
 /*   By: cmauley <cmauley@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 20:05:14 by cmauley           #+#    #+#             */
-/*   Updated: 2025/10/15 00:04:54 by cmauley          ###   ########.fr       */
+/*   Updated: 2025/10/15 17:34:23 by cmauley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,11 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 			d[n] = s[n];
 		}
 	}
-	else
+	i = 0;
+	while (i < n)
 	{
-		i = 0;
-		while (i < n)
-		{
-			d[i++] = s[i++];
-		}
+		d[i] = s[i];
+		i++;
 	}
 	return (dest);
 }

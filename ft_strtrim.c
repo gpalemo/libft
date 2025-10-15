@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmauley <cmauley@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/07 22:33:17 by cmauley           #+#    #+#             */
-/*   Updated: 2025/10/14 22:44:56 by cmauley          ###   ########.fr       */
+/*   Created: 2025/10/15 22:19:26 by cmauley           #+#    #+#             */
+/*   Updated: 2025/10/15 22:25:05 by cmauley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	inset(char c, const char *set)
+static int	inset(char c, const char *set)
 {
 	size_t	i;
 
@@ -28,38 +28,24 @@ static size_t	inset(char c, const char *set)
 
 char	*ft_strtrim(const char *s1, const char *set)
 {
+	size_t	i;
+	size_t	j;
+	size_t	len;
 	char	*s3;
-	int		i;
-	int		k;
-	int		len;
-	int		j;
 
-	i = 0;
-	k = 0;
-	len = ft_strlen(s1);
-	j = len - 1;
-	while (inset(s1[i], set) == 1)
-		i++;
-	while (inset(s1[j], set) == 1)
-		j--;
-	len = len - (j - i);
-	if (len == 0)
+	if (!s1 || !set)
 		return (NULL);
-	s3 = malloc(len - 1);
-	while (i <= j)
-	{
-		s3[k++] = s1[i++];
-	}
-	s3[k] = '\0';
+	i = 0;
+	while (s1[i] && inset(s1[i], set))
+		i++;
+	j = ft_strlen(s1);
+	while (j > i && inset(s1[j - 1], set))
+		j--;
+	len = j - i;
+	s3 = (char *)malloc(len + 1);
+	if (!s3)
+		return (NULL);
+	ft_memcpy(s3, s1 + i, len);
+	s3[len] = '\0';
 	return (s3);
 }
-/*int	main()
-{
-	char	*s1 = "abababjabajababa";
-	char	*set = "ab";
-
-	char *str = ft_strtrim(s1, set);
-	printf("%s\n", str);
-	free(str);
-	return (0);
-}*/
