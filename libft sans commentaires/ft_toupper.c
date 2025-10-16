@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmauley <cmauley@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/14 23:18:34 by cmauley           #+#    #+#             */
-/*   Updated: 2025/10/16 00:12:21 by cmauley          ###   ########.fr       */
+/*   Created: 2025/10/05 22:28:30 by cmauley           #+#    #+#             */
+/*   Updated: 2025/10/06 21:26:13 by cmauley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+int	ft_toupper(int c)
 {
-	unsigned int	i;
-
-	i = 0;
-	while (s[i])
+	if (c >= 97 && c <= 122)
 	{
-		(*f)(i, &s[i]);
-		i++;
+		c -= 32;
 	}
+	return (c);
 }
+/*int main(void)
+{
+    printf("%c -> %c\n", 'a', ft_toupper('a'));
+    return (0);
+}*/

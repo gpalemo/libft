@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmauley <cmauley@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/14 23:18:34 by cmauley           #+#    #+#             */
-/*   Updated: 2025/10/16 00:12:21 by cmauley          ###   ########.fr       */
+/*   Created: 2025/09/30 17:56:36 by cmauley           #+#    #+#             */
+/*   Updated: 2025/10/01 18:56:50 by cmauley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+int	ft_isprint(int c)
 {
-	unsigned int	i;
-
-	i = 0;
-	while (s[i])
+	if (c >= 32 && c <= 126)
 	{
-		(*f)(i, &s[i]);
-		i++;
+		return (1);
+	}
+	else
+	{
+		return (0);
 	}
 }

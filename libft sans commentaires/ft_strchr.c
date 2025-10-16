@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmauley <cmauley@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/14 23:18:34 by cmauley           #+#    #+#             */
-/*   Updated: 2025/10/16 00:12:21 by cmauley          ###   ########.fr       */
+/*   Created: 2025/10/06 00:31:14 by cmauley           #+#    #+#             */
+/*   Updated: 2025/10/06 21:31:39 by cmauley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+char	*ft_strchr(const char *s, int c)
 {
-	unsigned int	i;
+	char	ch;
 
-	i = 0;
-	while (s[i])
+	ch = (char) c;
+	while (*s)
 	{
-		(*f)(i, &s[i]);
-		i++;
+		if (*s == ch)
+			return ((char *)s);
+		s++;
 	}
+	if (*s == ch)
+		return ((char *)s);
+	return (NULL);
 }
+/*int main()
+{
+    char *str = "salut";
+
+    printf("Emplacement de l = %s\n", ft_strchr(str, 'l'));
+
+    return (0);
+}*/
