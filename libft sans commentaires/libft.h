@@ -6,7 +6,7 @@
 /*   By: cmauley <cmauley@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 16:29:40 by cmauley           #+#    #+#             */
-/*   Updated: 2025/10/14 23:21:49 by cmauley          ###   ########.fr       */
+/*   Updated: 2025/10/16 22:34:50 by cmauley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,15 @@ void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
+
+typedef struct	s_list
+{
+	void			*content;
+	struct s_list	*next;
+}					t_list;
+
+/* Bonus functions*/
+t_list *ft_lstnew(void *content);
+int		ft_lstsize(t_list *lst);
 
 #endif
