@@ -1,19 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmauley <cmauley@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/16 21:39:53 by cmauley           #+#    #+#             */
-/*   Updated: 2025/10/16 23:42:27 by cmauley          ###   ########.fr       */
+/*   Created: 2025/10/16 22:42:05 by cmauley           #+#    #+#             */
+/*   Updated: 2025/10/16 22:56:14 by cmauley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+t_list	*ft_lstlast(t_list *lst)
 {
-	new->next = *lst;
-	*lst = new;
+	t_list	*tmp;
+
+	tmp = lst;
+	while (tmp->next)
+	{
+		tmp = tmp->next;
+	}
+	return (tmp);
 }
+/*int	main()
+{
+	t_list	*a = ft_lstnew("dame");
+	t_list	*b = ft_lstnew("un");
+	t_list	*c = ft_lstnew("grrr");
+
+	a->next = b;
+	b->next = c;
+
+	t_list	*last = ft_lstlast(a);
+	if (last)
+		printf("content of the last node : %s\n", (char *)last->content);
+	free(a);
+	free(b);
+	free(c);
+
+	return (0);
+}*/
