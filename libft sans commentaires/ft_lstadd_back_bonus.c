@@ -6,7 +6,7 @@
 /*   By: cmauley <cmauley@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 22:57:10 by cmauley           #+#    #+#             */
-/*   Updated: 2025/10/16 23:39:15 by cmauley          ###   ########.fr       */
+/*   Updated: 2025/10/20 20:09:53 by cmauley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,14 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*last;
 
-	last = ft_lstlast(*lst);
-
-	if (!last)
+	if (!lst || !new)
+		return ;
+	if (*lst == NULL)
+	{
 		*lst = new;
+		return ;
+	}
+	last = ft_lstlast(*lst);
 	last->next = new;
 }
 /*int	main()

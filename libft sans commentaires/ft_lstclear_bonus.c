@@ -6,7 +6,7 @@
 /*   By: cmauley <cmauley@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 18:10:12 by cmauley           #+#    #+#             */
-/*   Updated: 2025/10/17 18:20:54 by cmauley          ###   ########.fr       */
+/*   Updated: 2025/10/20 19:30:01 by cmauley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 
 	while (*lst)
 	{
-		*tmp = (*lst->next);
-		ft_lstddelone(*lst, del);
+		tmp = (*lst)->next;
+		ft_lstdelone(*lst, del);
 		*lst = tmp;
 	}
-	free(lst);
+	free(*lst);
 	*lst = NULL;
 }

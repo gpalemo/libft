@@ -6,7 +6,7 @@
 /*   By: cmauley <cmauley@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 22:42:05 by cmauley           #+#    #+#             */
-/*   Updated: 2025/10/16 22:56:14 by cmauley          ###   ########.fr       */
+/*   Updated: 2025/10/20 19:49:34 by cmauley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ t_list	*ft_lstlast(t_list *lst)
 	t_list	*tmp;
 
 	tmp = lst;
+	if (!tmp)
+		return (NULL);
 	while (tmp->next)
 	{
 		tmp = tmp->next;
