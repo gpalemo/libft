@@ -6,11 +6,12 @@
 /*   By: cmauley <cmauley@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 16:20:13 by cmauley           #+#    #+#             */
-/*   Updated: 2025/10/15 23:35:51 by cmauley          ###   ########.fr       */
+/*   Updated: 2025/10/23 19:57:26 by cmauley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char)) //
 {

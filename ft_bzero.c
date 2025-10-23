@@ -6,11 +6,12 @@
 /*   By: cmauley <cmauley@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 18:41:45 by cmauley           #+#    #+#             */
-/*   Updated: 2025/10/01 19:00:19 by cmauley          ###   ########.fr       */
+/*   Updated: 2025/10/23 20:10:05 by cmauley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 
 void	ft_bzero(void *s, size_t n)
 {

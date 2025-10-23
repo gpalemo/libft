@@ -1,45 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmauley <cmauley@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/06 22:28:06 by cmauley           #+#    #+#             */
-/*   Updated: 2025/10/23 20:08:51 by cmauley          ###   ########.fr       */
+/*   Created: 2025/10/17 19:12:42 by cmauley           #+#    #+#             */
+/*   Updated: 2025/10/20 20:09:33 by cmauley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-
-void	*ft_calloc(size_t count, size_t size)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	unsigned char	*tmp;
-	size_t			total;
+	t_list	*new_list;
+	t_list	*new_elem;
 
-	tmp = 0;
-	total = count * size;
-	tmp = malloc(total);
-	if (!tmp)
+	if (!lst || !f || !del)
 		return (NULL);
-	ft_bzero(tmp, total);
-	return (tmp);
-}
-/*int	main()
-{
-	int *tab;
-	int i;
-
-	tab = ft_calloc(5, sizeof(int));
-	if (!tab)
-		return(1);
-	i = 0;
-	while (i < 5)
+	new_list = NULL;
+	while (lst)
 	{
-		printf("%d\n", tab[i]);
-		i++;
+		new_elem = malloc(sizeof(t_list));
+		if (!new_elem)
+		{
+			ft_lstclear(&new_list, del);
+			return (NULL);
+		}
+		new_elem->content = f(lst->content);
+		new_elem->next = NULL;
+		ft_lstadd_back(&new_list, new_elem);
+		lst = lst->next;
 	}
-	free(tab);
-	return (0);
-}*/
+	return (new_list);
+}

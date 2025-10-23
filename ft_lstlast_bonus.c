@@ -1,45 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmauley <cmauley@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/06 22:28:06 by cmauley           #+#    #+#             */
-/*   Updated: 2025/10/23 20:08:51 by cmauley          ###   ########.fr       */
+/*   Created: 2025/10/16 22:42:05 by cmauley           #+#    #+#             */
+/*   Updated: 2025/10/20 19:49:34 by cmauley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-
-void	*ft_calloc(size_t count, size_t size)
+t_list	*ft_lstlast(t_list *lst)
 {
-	unsigned char	*tmp;
-	size_t			total;
+	t_list	*tmp;
 
-	tmp = 0;
-	total = count * size;
-	tmp = malloc(total);
+	tmp = lst;
 	if (!tmp)
 		return (NULL);
-	ft_bzero(tmp, total);
+	while (tmp->next)
+	{
+		tmp = tmp->next;
+	}
 	return (tmp);
 }
 /*int	main()
 {
-	int *tab;
-	int i;
+	t_list	*a = ft_lstnew("dame");
+	t_list	*b = ft_lstnew("un");
+	t_list	*c = ft_lstnew("grrr");
 
-	tab = ft_calloc(5, sizeof(int));
-	if (!tab)
-		return(1);
-	i = 0;
-	while (i < 5)
-	{
-		printf("%d\n", tab[i]);
-		i++;
-	}
-	free(tab);
+	a->next = b;
+	b->next = c;
+
+	t_list	*last = ft_lstlast(a);
+	if (last)
+		printf("content of the last node : %s\n", (char *)last->content);
+	free(a);
+	free(b);
+	free(c);
+
 	return (0);
 }*/

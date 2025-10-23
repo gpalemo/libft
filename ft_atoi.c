@@ -6,12 +6,13 @@
 /*   By: cmauley <cmauley@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 15:43:04 by cmauley           #+#    #+#             */
-/*   Updated: 2025/10/06 23:12:30 by cmauley          ###   ########.fr       */
+/*   Updated: 2025/10/23 19:58:37 by cmauley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// Convertit une chaîne de caractères en un entier long
 long	ft_atoi(const char *str)
 {
 	long	result;

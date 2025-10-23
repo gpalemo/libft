@@ -1,45 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmauley <cmauley@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/06 22:28:06 by cmauley           #+#    #+#             */
-/*   Updated: 2025/10/23 20:08:51 by cmauley          ###   ########.fr       */
+/*   Created: 2025/10/16 23:41:02 by cmauley           #+#    #+#             */
+/*   Updated: 2025/10/17 19:11:13 by cmauley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-
-void	*ft_calloc(size_t count, size_t size)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	unsigned char	*tmp;
-	size_t			total;
-
-	tmp = 0;
-	total = count * size;
-	tmp = malloc(total);
-	if (!tmp)
-		return (NULL);
-	ft_bzero(tmp, total);
-	return (tmp);
+	del(lst->content);
+	free(lst);
 }
-/*int	main()
-{
-	int *tab;
-	int i;
 
-	tab = ft_calloc(5, sizeof(int));
-	if (!tab)
-		return(1);
-	i = 0;
-	while (i < 5)
-	{
-		printf("%d\n", tab[i]);
-		i++;
-	}
-	free(tab);
-	return (0);
+/*void del_content(void *content)
+{
+    free(content);
+}
+
+int main ()
+{
+	char *str = ft_strdup("cacaboudin");
+	t_list *elem = ft_lstnew(str);
+	printf("avant %s\n", (char *)elem->content);
+	ft_lstdelone(elem, del_content);
+	printf("apres %s\n", (char *)elem->content);
 }*/

@@ -1,45 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmauley <cmauley@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/06 22:28:06 by cmauley           #+#    #+#             */
-/*   Updated: 2025/10/23 20:08:51 by cmauley          ###   ########.fr       */
+/*   Created: 2025/10/17 18:10:12 by cmauley           #+#    #+#             */
+/*   Updated: 2025/10/20 19:30:01 by cmauley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-
-void	*ft_calloc(size_t count, size_t size)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	unsigned char	*tmp;
-	size_t			total;
+	t_list	*tmp;
 
-	tmp = 0;
-	total = count * size;
-	tmp = malloc(total);
-	if (!tmp)
-		return (NULL);
-	ft_bzero(tmp, total);
-	return (tmp);
-}
-/*int	main()
-{
-	int *tab;
-	int i;
-
-	tab = ft_calloc(5, sizeof(int));
-	if (!tab)
-		return(1);
-	i = 0;
-	while (i < 5)
+	while (*lst)
 	{
-		printf("%d\n", tab[i]);
-		i++;
+		tmp = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = tmp;
 	}
-	free(tab);
-	return (0);
-}*/
+	free(*lst);
+	*lst = NULL;
+}

@@ -1,45 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmauley <cmauley@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/06 22:28:06 by cmauley           #+#    #+#             */
-/*   Updated: 2025/10/23 20:08:51 by cmauley          ###   ########.fr       */
+/*   Created: 2025/10/16 22:57:10 by cmauley           #+#    #+#             */
+/*   Updated: 2025/10/23 20:12:39 by cmauley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-
-void	*ft_calloc(size_t count, size_t size)
+//
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	unsigned char	*tmp;
-	size_t			total;
+	t_list	*last;
 
-	tmp = 0;
-	total = count * size;
-	tmp = malloc(total);
-	if (!tmp)
-		return (NULL);
-	ft_bzero(tmp, total);
-	return (tmp);
+	if (!lst || !new)
+		return ;
+	if (*lst == NULL)
+	{
+		*lst = new;
+		return ;
+	}
+	last = ft_lstlast(*lst);
+	last->next = new;
 }
 /*int	main()
 {
-	int *tab;
-	int i;
+	t_list	*a = ft_lstnew("hello");
+	t_list	*b = ft_lstnew("world");
+	t_list	*c = ft_lstnew("42");
 
-	tab = ft_calloc(5, sizeof(int));
-	if (!tab)
-		return(1);
-	i = 0;
-	while (i < 5)
-	{
-		printf("%d\n", tab[i]);
-		i++;
-	}
-	free(tab);
-	return (0);
+	a->next = b;
+	ft_lstadd_back(&a, c);
+	printf("%s\n",(char *)a->next->next->content);
+	return(0);
 }*/
